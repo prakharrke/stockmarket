@@ -69,6 +69,8 @@ public class SellOrderBook implements OrderBook {
 			orderBookPriorityQueue.add(order);
 			sellOrderBook.put(key, orderBookPriorityQueue);
 		}
+		
+		System.out.println( "Sell Peek " + sellOrderBook.get(key).peek());
 	}
 
 	@Override

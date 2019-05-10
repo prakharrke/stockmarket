@@ -13,7 +13,7 @@ public class ExecutedOrder extends Order implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	
-	@Override
+	
 	public String toString() {
 		Date orderTime = new Date(this.getOrderTimeStamp());
 		DateFormat dateFormat = new SimpleDateFormat("hh:mm");

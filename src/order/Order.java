@@ -1,6 +1,6 @@
 package order;
 
-abstract public class Order {
+public class Order {
 	final String BUY = "BUY";
 	final String SELL = "SELL";
 	int orderID;
@@ -19,6 +19,17 @@ abstract public class Order {
 //		this.orderQuantity = orderQuantity;
 //		this.price = price;
 //	}
+	
+	// * FACTORY METHOD DESIGN PATTERN IMPLEMENTED - Dependency Inversion Principle
+	
+	public Order createOrder(String orderAction) {
+		if(orderAction.equals("BUY"))
+			return new BuyOrder();
+		if(orderAction.equals("SELL"))
+			return new SellOrder();
+		
+		return null;
+	}
 	
 	public Order setOrderID(int orderID) {
 		this.orderID = orderID;
@@ -73,7 +84,7 @@ abstract public class Order {
 		return this.sellOrder;
 	}
 	
-	abstract public String toString();
+	
 	
 	
 }

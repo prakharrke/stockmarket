@@ -10,7 +10,7 @@ public class BuyOrder extends Order {
 		
 	}
 
-	@Override
+	
 	public String toString() {
 		Date orderTime = new Date(this.getOrderTimeStamp());
 		DateFormat dateFormat = new SimpleDateFormat("hh:mm");

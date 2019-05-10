@@ -6,9 +6,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import order.BuyOrder;
 import order.Order;
-import order.SellOrder;
 
 public class InputParser {
 	
@@ -57,7 +55,8 @@ public Order generateOrder(String orderDetails) throws MalformedInputException, 
 		String priceString = inputParameters[5].trim();
 		price = Double.parseDouble(priceString);
 		
-		order = action.equals("BUY") ? new BuyOrder() : new SellOrder(); 	
+		// * Implementing Factor Method Design Pattern - Dependency Inversion Principal
+		order = new Order().createOrder(action);	
 		order.setOrderID(orderID)
 			 .setOrderKey(orderKey)
 			 .setorderTimeStamp(orderDate.getTime())
