@@ -26,7 +26,7 @@ public Order generateOrder(String orderDetails) throws MalformedInputException, 
 	Order order;
 	String[] inputParameters = orderDetails.split("[\\s+]");
 		if(inputParameters.length != 6)
-			throw new IllegalArgumentException("Bad Input");
+			throw new IllegalArgumentException("Bad Input. Please provide input in the specified format.\nOrder input format - <order-id> <order-key> <time> <action> <quantity> <price>");
 		String orderIDString = inputParameters[0].trim();
 			if(orderIDString.startsWith("#")) {
 				orderIDString = orderIDString.replace("#","");

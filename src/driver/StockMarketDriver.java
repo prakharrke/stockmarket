@@ -2,15 +2,18 @@ package driver;
 
 import java.nio.charset.MalformedInputException;
 import java.text.ParseException;
+import java.util.Iterator;
+import java.util.Queue;
 import java.util.Scanner;
 
 import inputparser.InputParser;
 import order.Order;
+import stockmarket.StockMarket;
 
 public class StockMarketDriver {
 
 	public static void main(String[] args) throws MalformedInputException, ParseException {
-		
+		while(true) {
 		Scanner scanner = new Scanner(System.in);  
 	    System.out.println("Enter order details");
 
@@ -18,8 +21,13 @@ public class StockMarketDriver {
 	    
 	    InputParser inputParser = new InputParser();
 	    Order order = inputParser.generateOrder(orderDetails);
-	    
-	    System.out.println();
+	   Queue<Order>executedOrders =  StockMarket.addOrder(order);
+	   
+	   Iterator<Order> itr = executedOrders.iterator();
+	   while(itr.hasNext()) {
+		   System.out.println(itr.next().toString());
+	   }
+	}
 	}
 	
 	

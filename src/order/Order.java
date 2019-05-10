@@ -1,11 +1,15 @@
 package order;
 
-public class Order {
+abstract public class Order {
+	final String BUY = "BUY";
+	final String SELL = "SELL";
 	int orderID;
 	String orderKey;
 	long orderTimeStamp;
 	int orderQuantity;
 	double price;
+	Order buyOrder;
+	Order sellOrder;
 //	public Order(int orderID, String orderKey, long orderTimeStamp, String orderAction, int orderQuantity, double price) {
 //		
 //		this.orderID = orderID;
@@ -52,4 +56,24 @@ public class Order {
 	public double getOrderPrice() {
 		return this.price;
 	}
+	
+	public Order setBuyOrder(Order buyOrder) {
+		this.buyOrder = buyOrder;
+		return this;
+	}
+	public Order setSellOrder(Order sellOrder) {
+		this.sellOrder = sellOrder;
+		return this;
+	}
+	
+	public Order getBuyOrder() {
+		return this.buyOrder;
+	}
+	public Order getSellOrder() {
+		return this.sellOrder;
+	}
+	
+	abstract public String toString();
+	
+	
 }
